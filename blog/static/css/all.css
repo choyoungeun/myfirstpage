@@ -1,0 +1,12 @@
+body{
+    text-align: center;
+}
+
+.footer{
+    margin-top: 15px;
+    padding: 15px 10px 8px 10px;
+    text-align: center;
+    background-color: rgb(253, 194, 0);
+    color:rgb(39, 38, 38);
+    
+}
