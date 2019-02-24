@@ -20,3 +20,6 @@ def create(request):
     blog.pub_date = timezone.datetime.now()
     blog.save()
     return redirect('/blog/'+str(blog.id))
+
+def contact(request):
+    return render(request,'contact.html')

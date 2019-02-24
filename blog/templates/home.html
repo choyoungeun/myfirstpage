@@ -7,6 +7,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'css/all.css' %}">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Gugi&amp;subset=korean" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Gaegu:300,400,700&amp;subset=korean" rel="stylesheet">
     </head>
     <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-warning">
@@ -17,19 +20,32 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="{%url 'home' %}">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{%url 'home' %}">Home<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{%url 'new' %}">글쓰기</a>
+                <a class="nav-link" href="{%url 'new' %}">Write</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{%url 'contact' %}">Contact</a>
             </li>
             </ul>
             <span class="navbar-text">
-                likelion 7th blogproject
+            likelion 7th blogproject
             </span>
         </div>
-        </nav>           
+        </nav>
+
+        <section class="jumbotron">
+            
+              <div class="row text-center">
+                <h2>Blog●Daily●Story</h2>
+                <h6>2nd project</h6>
+              
+            </div>
+            
+        </section>
+
         <div class="container">
-         <br>
         {% for blog in blogs.all%}
         <div class="card text-center">
                 <div class="card-body">
@@ -40,9 +56,12 @@
                 <div class="card-footer text-muted">
                     작성 날짜: {{blog.pub_date}}
                 </div>
-                <br>
               </div>
         {%endfor%}
     </div>
+    <br>
+    <footer>
+        <span>&copy; Eunnie's Daily Blog</span>
+    </footer>
     </body>
 </html>
