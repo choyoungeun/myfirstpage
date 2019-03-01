@@ -1,0 +1,129 @@
+{% load staticfiles %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/all.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Poor+Story&amp;subset=korean" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Gugi&amp;subset=korean" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Gaegu:300,400,700&amp;subset=korean" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <title>Portfolio Page</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+
+    <!-- Bootstrap core CSS -->
+<link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="album.css" rel="stylesheet">
+  </head>
+  <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+                <a class="navbar-brand" href="{%url 'home' %}">My Blog</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{%url 'home' %}">Home<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{%url 'new' %}">Write</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{%url 'contact' %}">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{%url 'portfolio' %}">Portfolio</a>
+                    </li>
+                    </ul>
+                    <span class="navbar-text">
+                    likelion 7th blogproject
+                    </span>
+                </div>
+                </nav>
+        
+
+<main role="main">
+
+  <section class="jumbotron2 text-center">
+    <div class="container">
+      <h1>My Portfolio</h1>
+      <p class="lead text-muted">제가 작업해본 프로젝트들을 올리는 공간입니다.</p>
+      <p>
+          <a href="{% url 'home' %}" class="btn btn-warning">홈 바로가기</a>
+      </p>
+    </div>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img src="{% static 'img/port1.PNG' %}" height="350" alt="자바게임만들기">
+            <div class="card-body">
+              <p class="card-text">저의 첫번째 자바 프로젝트입니다. 자바 GUI를 이용한 게임 만들기 개인 프로젝트를 진행했습니다. 방향키를 조작하여 랜덤으로 생성되는 적들을 격추 시키는 슈팅게임 입니다.제작 기간은 총 보름 정도 걸렸습니다.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="window.open('https://github.com/JoYeongEun/gameproject')">github</button>
+                </div>
+                <small class="text-muted">작성자: 조영은</small>
+              </div>
+            </div>
+          </div>
+        </div>
+     {%for portfolio in portfolios.all %}
+     <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <img src="{{portfolio.image.url}}" height="350">
+          <div class="card-body">
+            <p class="card-text">{{portfolio.description}}</p>
+            <div class="d-flex justify-content-between align-items-center">
+              
+              <small class="text-muted">작성자: 조영은</small>
+            </div>
+          </div>
+        </div>
+      </div>
+     {%endfor%}
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <span>&copy; Eunnie's Daily Blog</span>
+</footer>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="/docs/4.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script></body>
+</html>
