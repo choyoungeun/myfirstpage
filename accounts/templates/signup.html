@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head lang="ko">
+    <title>회원가입 페이지</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/all.css' %}">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Gugi&amp;subset=korean" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Gaegu:300,400,700&amp;subset=korean" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poor+Story&amp;subset=korean" rel="stylesheet">
+</head>
+<body>
+            <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+                    <a class="navbar-brand" href="{%url 'home' %}">My Blog</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarText">
+                        <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{%url 'home' %}">Home<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{%url 'new' %}">Write</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{%url 'contact' %}">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="{%url 'portfolio' %}">Portfolio</a>
+                      </li>
+                      {% if user.is_authenticated %}
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+                              aria-haspopup="true" aria-expanded="false">환영합니다. {{ user.username }} 님!</a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                              <a class="dropdown-item" href="{% url 'new' %}">글쓰기</a>
+                              <a class="dropdown-item" href="javascript:{document.getElementById('logout').submit()}">Logout</a>
+                              <form id="logout" method="POST" action="{% url 'logout' %}">
+                                {% csrf_token %} <input type="hidden" />
+                            </form>
+                          </div>
+                      </li>
+                      {% else %}
+                      <li class="nav-item">
+                          <a class="nav-item nav-link" href="{% url 'signup' %}">Signup</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+                      </li>
+                      {% endif %}
+                    </ul>
+                        <span class="navbar-text">
+                        likelion 7th blogproject
+                        </span>
+                    </div>
+                    </nav>
+
+                    <div id="blog">
+                        <div class="post">
+                              <h2>회원가입</h2>
+                              
+                              <div class="container2">
+                                    <h3>id와 p/w를 만드세요</h3>
+                            <form method="POST" action="{% url 'signup' %}">
+                                {% csrf_token %}
+                              이름:
+                              <input name="username" type="text" value="">
+                              <br>
+                              비밀번호:
+                              <input name="password1" type="password" value="">
+                              <br>
+                              비밀번호 재확인:
+                              <input name="password2" type="password" value="">
+                              <br>
+                              <input class="btn btn-warning" type="submit" value="회원가입">
+                            </form>
+                            </div>
+                            
+                      </div>
+                    </div> 
+    <footer>
+    <span>&copy; Eunnie's Daily Blog</span>
+    </footer>
+</body>
+</html>
+

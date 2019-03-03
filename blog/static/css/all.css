@@ -2,6 +2,9 @@ body{
     text-align: center;
 }
 
+nav {
+  font-family: 'Gugi', cursive;
+}
 .jumbotron {
     display: flex;
     align-items: center;
@@ -157,3 +160,8 @@ body{
   p{ 
     font-family: 'Poor Story', cursive;
   }
+
+.rounded mx-auto d-block {
+  width: 100px;
+  height: 100px;
+}
