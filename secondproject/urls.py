@@ -5,6 +5,8 @@ import portfolio.views
 import accounts.views
 from django.conf import settings
 from django.conf.urls.static import static
+from rest_framework_swagger.views import get_swagger_view
+
 
 
 urlpatterns = [
