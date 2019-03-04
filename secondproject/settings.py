@@ -1,3 +1,4 @@
+import os
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -31,9 +32,6 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'portfolio.apps.PortfolioConfig',
     'accounts.apps.AccountsConfig',
-    'rest_framework',
-    'rest_framework_swagger',
-    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
